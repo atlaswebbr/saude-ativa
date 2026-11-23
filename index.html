@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Academia Saúde Ativa Fitness | Treino &amp; Movimento em Alagoinhas</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Teko:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['Teko', 'sans-serif'],
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+          },
+          colors: {
+            ativaDark: '#090D16',
+            ativaCard: '#111827',
+            ativaGreen: '#10B981',
+            ativaTeal: '#06B6D4',
+            ativaGold: '#F59E0B',
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-ativaDark text-slate-100 antialiased selection:bg-ativaGreen selection:text-slate-950">
+
+  <!-- Faixa discreta Atlas Web -->
+  <div class="bg-slate-950 text-slate-400 text-xs py-2 px-4 text-center border-b border-slate-800/80">
+    Demonstração criada pela <span class="text-emerald-400 font-semibold">Atlas Web</span> • Alagoinhas - BA
+  </div>
+
+  <!-- Cabeçalho -->
+  <header class="sticky top-0 z-40 bg-ativaDark/95 backdrop-blur border-b border-slate-800">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
+      <a href="#topo" class="flex items-center gap-3 min-w-0">
+        <img
+          src="logo-saude-ativa.jpg"
+          alt="Academia Saúde Ativa Fitness"
+          onerror="this.style.display='none'; document.getElementById('logo-fallback-sa').classList.remove('hidden');"
+          class="w-10 h-10 rounded-full object-cover border border-emerald-400/50 shrink-0"
+        />
+        <div id="logo-fallback-sa" class="hidden w-10 h-10 rounded-full bg-ativaGreen text-slate-950 font-display font-bold text-xl flex items-center justify-center shrink-0">
+          SA
+        </div>
+        <div class="truncate">
+          <span class="font-display font-bold text-white text-xl sm:text-2xl tracking-wide block leading-none truncate">
+            Saúde Ativa Fitness
+          </span>
+          <span class="text-[11px] text-emerald-400 block truncate">
+            @asaudeativa • Centro, Alagoinhas
+          </span>
+        </div>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-7 text-sm font-medium text-slate-300">
+        <a href="#treinos" class="hover:text-emerald-400 transition">Treinos &amp; Eventos</a>
+        <a href="#horarios" class="hover:text-emerald-400 transition">Horários &amp; Local</a>
+        <a href="#matricula" class="hover:text-emerald-400 transition">Começar</a>
+      </nav>
+
+      <a
+        href="https://wa.me/message/3QA77NXZ2QKBM1"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="bg-ativaGreen hover:bg-emerald-400 text-slate-950 font-bold text-xs sm:text-sm px-4 py-2.5 rounded-lg transition shrink-0"
+      >
+        Falar no WhatsApp
+      </a>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section id="topo" class="relative overflow-hidden pt-12 pb-16 sm:pt-20 sm:pb-24 border-b border-slate-800/80">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 grid lg:grid-cols-12 gap-10 items-center">
+      <div class="lg:col-span-7 space-y-5">
+        <div class="inline-flex items-center gap-2 bg-emerald-950/80 border border-emerald-500/30 text-emerald-300 text-xs font-semibold px-3.5 py-1.5 rounded-full">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+          <span>Musculação • Corrida • Comunidade Ativa</span>
+        </div>
+
+        <h1 class="font-display text-5xl sm:text-7xl font-bold uppercase tracking-wide leading-[0.96] text-white">
+          Sua rotina de treino ganha ritmo todo dia.
+        </h1>
+
+        <p class="text-slate-300 text-base sm:text-lg leading-relaxed max-w-2xl">
+          Na <strong>Academia Saúde Ativa Fitness</strong>, você encontra musculação no Centro de Alagoinhas, energia de grupo e eventos que movimentam a cidade, como corridas e encontros especiais.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-3 pt-2">
+          <button
+            type="button"
+            onclick="abrirModal('Plano & Matrícula')"
+            class="bg-ativaGreen hover:bg-emerald-400 text-slate-950 font-bold px-6 py-3.5 rounded-lg transition cursor-pointer"
+          >
+            Consultar Planos &amp; Valores
+          </button>
+          <a
+            href="#horarios"
+            class="bg-ativaCard hover:bg-slate-800 text-white font-semibold px-6 py-3.5 rounded-lg border border-slate-700 transition text-center"
+          >
+            Ver Horários de Funcionamento
+          </a>
+        </div>
+      </div>
+
+      <!-- Painel interativo de objetivo -->
+      <div class="lg:col-span-5 bg-ativaCard border border-slate-800 rounded-2xl p-6 sm:p-7">
+        <span class="text-xs font-bold uppercase tracking-wider text-amber-400">Atendimento Rápido</span>
+        <h2 class="font-display text-3xl font-bold text-white mt-1 mb-4">Escolha seu foco</h2>
+
+        <form onsubmit="enviarInteresse(event)" class="space-y-4">
+          <div>
+            <label for="aluno-nome" class="block text-xs font-medium text-slate-300 mb-1">Seu nome</label>
+            <input
+              id="aluno-nome"
+              type="text"
+              required
+              placeholder="Ex.: Lucas / Aluno"
+              class="w-full rounded-lg bg-ativaDark border border-slate-700 px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-emerald-400"
+            />
+          </div>
+
+          <div>
+            <label for="foco-treino" class="block text-xs font-medium text-slate-300 mb-1">O que você procura?</label>
+            <select
+              id="foco-treino"
+              class="w-full rounded-lg bg-ativaDark border border-slate-700 px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-emerald-400"
+            >
+              <option value="Musculação (valores e planos)">Musculação (valores e planos)</option>
+              <option value="Aula experimental / informações">Aula experimental / informações</option>
+              <option value="Corrida / eventos Saúde Ativa">Corrida / eventos Saúde Ativa</option>
+              <option value="Localização e horários">Localização e horários</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="turno-treino" class="block text-xs font-medium text-slate-300 mb-1">Turno preferido</label>
+            <select
+              id="turno-treino"
+              class="w-full rounded-lg bg-ativaDark border border-slate-700 px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-emerald-400"
+            >
+              <option value="Manhã (a partir das 5h)">Manhã (a partir das 5h)</option>
+              <option value="Tarde">Tarde</option>
+              <option value="Noite (até 22h30)">Noite (até 22h30)</option>
+              <option value="Sábado (6h às 13h)">Sábado (6h às 13h)</option>
+            </select>
+          </div>
+
+          <button
+            type="submit"
+            class="w-full bg-ativaGreen hover:bg-emerald-400 text-slate-950 font-bold py-3 rounded-lg text-sm transition cursor-pointer"
+          >
+            Chamar Saúde Ativa no WhatsApp
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Destaques do perfil -->
+  <section id="treinos" class="py-16 sm:py-20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="max-w-2xl mb-10">
+        <span class="text-xs font-bold uppercase tracking-wider text-emerald-400">O Que Move a Academia</span>
+        <h2 class="font-display text-4xl sm:text-5xl font-bold uppercase text-white mt-1">
+          Musculação, pista e espírito de equipe
+        </h2>
+        <p class="text-slate-300 mt-2 text-sm sm:text-base">
+          Além do treino diário na sala de musculação, a Saúde Ativa engaja a galera com desafios, corridas e encontros especiais.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        <article class="bg-ativaCard rounded-2xl p-6 border border-slate-800 flex flex-col justify-between">
+          <div>
+            <span class="text-xs font-bold text-emerald-400 bg-emerald-950 px-3 py-1 rounded-full">01 • Sala de Treino</span>
+            <h3 class="font-display text-3xl font-bold text-white mt-4">Musculação</h3>
+            <p class="text-slate-300 text-sm mt-2 leading-relaxed">
+              Ampla janela de funcionamento durante a semana para encaixar o treino antes do trabalho, no meio do dia ou à noite.
+            </p>
+          </div>
+          <button type="button" onclick="abrirModal('Musculação')" class="mt-6 text-sm font-semibold text-emerald-400 hover:underline text-left cursor-pointer">
+            Ver valores e planos →
+          </button>
+        </article>
+
+        <article class="bg-ativaCard rounded-2xl p-6 border border-slate-800 flex flex-col justify-between">
+          <div>
+            <span class="text-xs font-bold text-cyan-400 bg-cyan-950 px-3 py-1 rounded-full">02 • Rua &amp; Performance</span>
+            <h3 class="font-display text-3xl font-bold text-white mt-4">Corridas &amp; Desafios</h3>
+            <p class="text-slate-300 text-sm mt-2 leading-relaxed">
+              Ações como corridas de 5 km e encontros de condicionamento que levam o clima da academia para além dos aparelhos.
+            </p>
+          </div>
+          <button type="button" onclick="abrirModal('Corridas & Eventos')" class="mt-6 text-sm font-semibold text-cyan-400 hover:underline text-left cursor-pointer">
+            Saber sobre próximos eventos →
+          </button>
+        </article>
+
+        <article class="bg-ativaCard rounded-2xl p-6 border border-slate-800 flex flex-col justify-between">
+          <div>
+            <span class="text-xs font-bold text-amber-400 bg-amber-950 px-3 py-1 rounded-full">03 • Comunidade</span>
+            <h3 class="font-display text-3xl font-bold text-white mt-4">Clima de Equipe</h3>
+            <p class="text-slate-300 text-sm mt-2 leading-relaxed">
+              Acompanhamento próximo, ambiente animado e turma engajada para manter a constância de quem está começando ou evoluindo.
+            </p>
+          </div>
+          <button type="button" onclick="abrirModal('Informações da Academia')" class="mt-6 text-sm font-semibold text-amber-400 hover:underline text-left cursor-pointer">
+            Tirar dúvidas agora →
+          </button>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Horários e Localização -->
+  <section id="horarios" class="py-16 bg-ativaCard/70 border-y border-slate-800">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 grid md:grid-cols-2 gap-8 items-center">
+      <div class="space-y-4">
+        <span class="text-xs font-bold uppercase tracking-wider text-emerald-400">Funcionamento &amp; Endereço</span>
+        <h2 class="font-display text-4xl sm:text-5xl font-bold uppercase text-white">
+          Pronto para treinar no Centro
+        </h2>
+        <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+          Confira os horários de abertura da academia e fale direto pelo WhatsApp para tirar dúvidas sobre valores, planos e matrícula.
+        </p>
+
+        <div class="space-y-2 text-sm text-slate-200 pt-2">
+          <p><strong class="text-white">Segunda a sexta:</strong> 05h00 às 22h30</p>
+          <p><strong class="text-white">Sábado:</strong> 06h00 às 13h00</p>
+          <p><strong class="text-white">Endereço:</strong> Rua José Galdino Maia — Centro, Alagoinhas</p>
+          <p><strong class="text-white">Instagram:</strong> @asaudeativa</p>
+        </div>
+
+        <div class="pt-3 flex flex-wrap gap-3">
+          <a
+            href="https://wa.me/message/3QA77NXZ2QKBM1"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="bg-ativaGreen hover:bg-emerald-400 text-slate-950 font-bold text-sm px-5 py-3 rounded-lg transition"
+          >
+            Falar no WhatsApp
+          </a>
+          <a
+            href="https://www.instagram.com/asaudeativa/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="bg-slate-800 hover:bg-slate-700 text-white text-sm font-semibold px-5 py-3 rounded-lg transition"
+          >
+            Ver Instagram (@asaudeativa)
+          </a>
+        </div>
+      </div>
+
+      <div class="bg-ativaDark rounded-2xl p-6 sm:p-8 border border-slate-800 space-y-4">
+        <h3 class="font-display text-3xl font-bold text-white">Por que ter uma página própria?</h3>
+        <ul class="space-y-3 text-sm text-slate-300">
+          <li>• <strong class="text-white">Horários e endereço sempre visíveis:</strong> quem procura onde treinar no Centro acha tudo num clique.</li>
+          <li>• <strong class="text-white">Mais matrículas via WhatsApp:</strong> direciona o interessado direto para pedir valores e começar.</li>
+          <li>• <strong class="text-white">Vitrine para eventos e corridas:</strong> divulga ações especiais com destaque claro, sem se perder no feed.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Rodapé -->
+  <footer id="matricula" class="bg-slate-950 text-slate-400 py-8 text-xs border-t border-slate-800">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <span>Academia Saúde Ativa Fitness • Rua José Galdino Maia, Centro — Alagoinhas</span>
+      <span>Prévia criada pela <strong class="text-emerald-400">Atlas Web</strong></span>
+    </div>
+  </footer>
+
+  <!-- Modal -->
+  <div id="modal-saude" class="fixed inset-0 z-50 hidden bg-black/75 items-center justify-center p-4">
+    <div class="bg-ativaCard text-white rounded-2xl max-w-md w-full p-6 border border-slate-700 shadow-2xl">
+      <div class="flex items-center justify-between mb-3">
+        <h3 id="modal-saude-titulo" class="font-display text-3xl font-bold text-emerald-400">Saúde Ativa</h3>
+        <button type="button" onclick="fecharModal()" class="text-slate-400 hover:text-white text-2xl leading-none cursor-pointer">&times;</button>
+      </div>
+      <p class="text-xs text-slate-300 mb-4">
+        Digite seu nome para abrir o WhatsApp oficial da academia com o assunto selecionado.
+      </p>
+      <input
+        id="modal-saude-nome"
+        type="text"
+        placeholder="Seu nome"
+        class="w-full rounded-lg bg-ativaDark border border-slate-700 px-3.5 py-2.5 text-sm text-white mb-4 focus:outline-none focus:border-emerald-400"
+      />
+      <button
+        id="modal-saude-btn"
+        type="button"
+        class="w-full bg-ativaGreen hover:bg-emerald-400 text-slate-950 font-bold py-3 rounded-lg text-sm transition cursor-pointer"
+      >
+        Abrir WhatsApp da Academia
+      </button>
+    </div>
+  </div>
+
+  <script>
+    const WA_LINK = 'https://wa.me/message/3QA77NXZ2QKBM1';
+    let assuntoAtual = 'Plano & Matrícula';
+
+    function abrirModal(assunto) {
+      assuntoAtual = assunto;
+      document.getElementById('modal-saude-titulo').textContent = assunto;
+      document.getElementById('modal-saude-nome').value = '';
+      const modal = document.getElementById('modal-saude');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function fecharModal() {
+      const modal = document.getElementById('modal-saude');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    document.getElementById('modal-saude-btn').addEventListener('click', () => {
+      window.open(WA_LINK, '_blank', 'noopener,noreferrer');
+      fecharModal();
+    });
+
+    function enviarInteresse(e) {
+      e.preventDefault();
+      window.open(WA_LINK, '_blank', 'noopener,noreferrer');
+    }
+  </script>
+</body>
+</html>
